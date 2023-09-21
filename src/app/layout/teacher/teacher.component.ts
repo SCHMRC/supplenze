@@ -17,7 +17,6 @@ export class TeacherComponent {
   constructor(private service: HttpService){
     const merged = merge(this.service.getTeachers(),this.service.getClass());
     merged.subscribe(x => console.log(x));
-
   }
 
   applyFilter(event: Event) {
