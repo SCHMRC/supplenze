@@ -15,5 +15,9 @@ export class HttpService {
 
   getClass(){
     return this.http.get<any>('assets/hardcoded/class.json')
-}
+  }
+
+  getJoin(){
+    return this.http.get<any>('assets/hardcoded/joinClassTeacher.json')
+  }
 }

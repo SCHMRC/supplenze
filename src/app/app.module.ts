@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { registerLocaleData } from '@angular/common';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -8,7 +8,12 @@ import { TeacherComponent } from './layout/teacher/teacher.component';
 import { HandlerComponent } from './layout/handler/handler.component';
 import { MaterialModule } from './material/material/material.module';
 import { HttpClientModule } from '@angular/common/http'
+import { ReactiveFormsModule , FormsModule} from '@angular/forms'
 
+
+
+import localeIt from '@angular/common/locales/it';
+registerLocaleData(localeIt);
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,9 +25,13 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR'},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
