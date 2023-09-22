@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { merge } from 'rxjs';
+import { BehaviorSubject, merge } from 'rxjs';
 
 import { HttpService } from 'src/app/service/http.service';
 
@@ -27,6 +27,7 @@ export interface Substitution{
 })
 export class TeacherComponent {
   timestampMillis = Date.now();
+
 
   displayedColumns: string[] = ['name', 'surname','ora' ,'classe','piano','aula_numero','indirizzo'];
   dataSource = new MatTableDataSource();

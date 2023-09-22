@@ -4,23 +4,33 @@
       <mat-form-field>
         <mat-label>Docente</mat-label>
         <mat-select formControlName="docente">
-          <mat-option *ngFor="let teacher of teachers" [value]="teacher?.id">
+          <mat-option *ngFor="let teacher of teachers" [value]="teacher?.idTeacher">
             {{teacher?.name}} {{teacher?.surname}}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
-
-    <div>
+    <div  style="margin-right: 10px;">
       <mat-form-field>
         <mat-label>Classe</mat-label>
         <mat-select formControlName="classe">
-          <mat-option *ngFor="let class of classes" [value]="class?.id">
+          <mat-option *ngFor="let class of classes" [value]="class?.idClass">
             {{class?.anno}} {{class?.sezione}}
           </mat-option>
         </mat-select>
       </mat-form-field>
     </div>
+    <div  style="margin-right: 10px;">
+      <mat-form-field>
+        <mat-label>Ora</mat-label>
+        <mat-select formControlName="ora">
+          <mat-option *ngFor="let ora of [1,2,3,4,5,6,7,8]" [value]="ora">
+            {{ora}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" [disabled]="form.invalid">Inserisci supplente</button>
   </form>
 </div>
 
