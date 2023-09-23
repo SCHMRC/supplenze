@@ -1,8 +1,23 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
-import { merge } from 'rxjs';
+import { BehaviorSubject, merge } from 'rxjs';
 
 import { HttpService } from 'src/app/service/http.service';
+
+
+export interface Substitution{
+  idTeacher: string,
+  name: string,
+  surname: string,
+  idClass: string,
+  sezione: string,
+  anno: string,
+  piano: string,
+  numero_aula: string,
+  settore: string,
+  ora: string,
+  data: string
+}
 
 
 @Component({
@@ -11,12 +26,19 @@ import { HttpService } from 'src/app/service/http.service';
   styleUrls: ['./teacher.component.scss']
 })
 export class TeacherComponent {
-  displayedColumns: string[] = ['ora', 'name', 'surname', 'classe','piano','indirizzo'];
-  dataSource: any;
+  timestampMillis = Date.now();
+
+
+  displayedColumns: string[] = ['name', 'surname','ora' ,'classe','piano','aula_numero','indirizzo','firma'];
+  dataSource = new MatTableDataSource();
 
   constructor(private service: HttpService){
-    const merged = merge(this.service.getTeachers(),this.service.getClass());
-    merged.subscribe(x => console.log(x));
+    setInterval(()=>{
+      this.timestampMillis = Date.now();
+    },1000)
+    this.service.getJoin().subscribe(data=>{
+      this.dataSource = new MatTableDataSource(data);
+    })
   }
 
   applyFilter(event: Event) {

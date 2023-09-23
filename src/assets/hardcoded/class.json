@@ -1,5 +1,6 @@
 [
   {
+    "idClass":"1",
     "sezione":"A",
     "anno":"3",
     "piano":"1",
@@ -7,6 +8,7 @@
     "settore":"ITE"
   },
   {
+    "idClass":"2",
     "sezione":"B",
     "anno":"5",
     "piano":"2",
@@ -14,6 +16,7 @@
     "settore":"ITT"
   },
   {
+    "idClass":"3",
     "sezione":"C",
     "anno":"1",
     "piano":"1",
@@ -21,6 +24,7 @@
     "settore":"LICEO"
   },
   {
+    "idClass":"4",
     "sezione":"D",
     "anno":"3",
     "piano":"0",
@@ -28,6 +32,7 @@
     "settore":"ITT"
   },
   {
+    "idClass":"5",
     "sezione":"E",
     "anno":"5",
     "piano":"0",
@@ -35,6 +40,7 @@
     "settore":"ITE"
   },
   {
+    "idClass":"6",
     "sezione":"E",
     "anno":"2",
     "piano":"3",
@@ -42,6 +48,7 @@
     "settore":"ITE"
   },
   {
+    "idClass":"7",
     "sezione":"B",
     "anno":"2",
     "piano":"3",
@@ -49,6 +56,7 @@
     "settore":"LICEO"
   },
   {
+    "idClass":"8",
     "sezione":"C",
     "anno":"4",
     "piano":"1",
