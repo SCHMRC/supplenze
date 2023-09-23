@@ -30,17 +30,11 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="addSupplenza()">Inserisci supplente</button>
-    <button mat-raised-button (click)="openDialog('teacher')">Gestione Docente</button>
-    <button mat-raised-button (click)="openDialog('class')">Gestione Classe</button>
+    <div class="container-btn">
+      <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="addSupplenza()">Inserisci supplente</button>
+      <button mat-raised-button color="accent"  (click)="openDialog('teacher')">Gestione Docente</button>
+      <button mat-raised-button color="basic" (click)="openDialog('class')">Gestione Classe</button>
+    </div>
   </form>
 </div>
 
-
-
-
-
-
-
-
-<app-teacher></app-teacher>

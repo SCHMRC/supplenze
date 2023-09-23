@@ -1,12 +1,97 @@
-<h1 mat-dialog-title>Hi {{data.name}}</h1>
+<h1 mat-dialog-title>Gestione Classe</h1>
 <div mat-dialog-content>
-  <p>What's your favorite animal?</p>
+  <div class="form-content">
+          <mat-form-field class="mr-custom">
+          <mat-label>Sezione</mat-label>
+          <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="mr-custom">
+          <mat-label>Anno</mat-label>
+          <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="mr-custom">
+          <mat-label>Piano</mat-label>
+          <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="mr-custom">
+          <mat-label>Num. Aula</mat-label>
+          <input matInput>
+          </mat-form-field>
+
+          <mat-form-field class="mr-custom">
+          <mat-label>Settore</mat-label>
+          <input matInput>
+          </mat-form-field>
+
+          <button  style="width: 100%;height: 56px;" mat-button cdkFocusInitial>Aggiungi classe</button>
+  </div>
+
   <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="data.animal">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
   </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="classroom" matSort>
+
+      <!-- ID Column -->
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.idClass}} </td>
+      </ng-container>
+
+      <!-- Progress Column -->
+      <ng-container matColumnDef="sezione">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Sezione </th>
+        <td mat-cell *matCellDef="let row"> {{row.sezione}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="anno">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Anno </th>
+        <td mat-cell *matCellDef="let row"> {{row.anno}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="piano">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Piano </th>
+               <td mat-cell *matCellDef="let row"> {{row.piano}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="numero_aula">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Num. Aula </th>
+               <td mat-cell *matCellDef="let row"> {{row.numero_aula}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="settore">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Indirizzo </th>
+               <td mat-cell *matCellDef="let row"> {{row.settore}} </td>
+      </ng-container>
+      <!-- Name Column -->
+      <ng-container matColumnDef="rimuovi">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Rimuovi </th>
+        <td mat-cell *matCellDef="let row" (click)="alertRemove()"> <span class="remove">&#10060;</span></td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+
+
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+<div mat-dialog-actions style = "position: absolute; bottom: 5px;right: 5px;">
+  <button mat-button (click)="onNoClick()">Chiudi</button>
 </div>
+

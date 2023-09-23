@@ -7,10 +7,20 @@ table {
   width: 100%;
 }
 
-td, th {
-  width: 25%;
-}
 
 .remove {
   cursor: pointer;
 }
+
+
+td {
+  padding-right: 8px;
+}
+
+.form-content {
+  display: flex;
+  .mr-custom {
+    margin-right: 5px;
+  }
+}
+

@@ -51,7 +51,7 @@ export class HandlerComponent implements OnInit {
     }
     const dialogRef = this.dialog.open(component, {
       width : '800px',
-      height : '600px',
+      height : '680px',
       data : ''
     });
 

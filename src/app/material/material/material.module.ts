@@ -7,7 +7,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSortModule} from '@angular/material/sort';
-
+import { MatDividerModule } from '@angular/material/divider';
 
 
 
@@ -19,7 +19,8 @@ const MODULES = [
   MatButtonModule,
   MatDialogModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatDividerModule
 ]
 
 @NgModule({

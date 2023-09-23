@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
@@ -12,6 +13,7 @@ import { HttpService } from 'src/app/service/http.service';
 })
 export class DialogTeacherComponent implements OnInit, AfterViewInit{
   dataSource = new MatTableDataSource();
+  formTeacher!: FormGroup;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
   displayedColumns: string[] = ['id','name', 'surname', 'action'];
@@ -20,10 +22,16 @@ export class DialogTeacherComponent implements OnInit, AfterViewInit{
   constructor(
     public dialogRef: MatDialogRef<DialogTeacherComponent>,
     private service: HttpService,
+    private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {}
 
   ngOnInit(): void {
+    this.formTeacher = this.fb.group({
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+    })
+
     this.service.getTeachers().subscribe((data)=>{
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

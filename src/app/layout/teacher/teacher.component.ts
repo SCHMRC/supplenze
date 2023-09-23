@@ -29,7 +29,7 @@ export class TeacherComponent {
   timestampMillis = Date.now();
 
 
-  displayedColumns: string[] = ['name', 'surname','ora' ,'classe','piano','aula_numero','indirizzo'];
+  displayedColumns: string[] = ['name', 'surname','ora' ,'classe','piano','aula_numero','indirizzo','firma'];
   dataSource = new MatTableDataSource();
 
   constructor(private service: HttpService){
