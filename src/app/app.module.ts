@@ -13,12 +13,16 @@ import { ReactiveFormsModule , FormsModule} from '@angular/forms'
 
 
 import localeIt from '@angular/common/locales/it';
+import { DialogTeacherComponent } from './layout/dialog/dialog-teacher/dialog-teacher.component';
+import { DialogClasseComponent } from './layout/dialog/dialog-classe/dialog-classe.component';
 registerLocaleData(localeIt);
 @NgModule({
   declarations: [
     AppComponent,
     TeacherComponent,
-    HandlerComponent
+    HandlerComponent,
+    DialogTeacherComponent,
+    DialogClasseComponent
   ],
   imports: [
     BrowserModule,

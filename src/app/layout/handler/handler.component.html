@@ -30,7 +30,9 @@
         </mat-select>
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" [disabled]="form.invalid">Inserisci supplente</button>
+    <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="addSupplenza()">Inserisci supplente</button>
+    <button mat-raised-button (click)="openDialog('teacher')">Gestione Docente</button>
+    <button mat-raised-button (click)="openDialog('class')">Gestione Classe</button>
   </form>
 </div>
 
